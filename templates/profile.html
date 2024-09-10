@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Settings</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Update Profile</h1>
+        <form method="POST" action="{% url 'profile' %}">
+            {% csrf_token %}
+            
+            <label for="user_id">User ID</label>
+            <input type="text" id="user_id" name="user_id" value="{{ user.user_id }}" readonly>
+        
+            <label for="email_id">Email ID</label>
+            <input type="email" id="email_id" name="email_id" value="{{ user.email }}" readonly>
+        
+            <label for="time_zone">Time Zone</label>
+            <select id="time_zone" name="time_zone" required>
+                <option value="">Select your time zone</option>
+                <option value="UTC-5" {% if user.time_zone == 'UTC-5' %}selected{% endif %}>UTC-5</option>
+                <option value="UTC+0" {% if user.time_zone == 'UTC+0' %}selected{% endif %}>UTC+0</option>
+                <option value="UTC+5" {% if user.time_zone == 'UTC+5' %}selected{% endif %}>UTC+5</option>
+            </select>
+        
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" value="{{ user.location }}" required>
+        
+            <button type="submit">Update Profile</button>
+        </form>
+        
+        <a href="{% url 'logout' %}">Log Out</a>  <!-- Logout link -->
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body class="home-page">
+
+    <!-- Welcome Message -->
+    <header>
+        <h1>Welcome back, {{ user.username }}!</h1>
+    </header>
+
+    <!-- Upcoming Meetings Section -->
+    <section class="upcoming-meetings">
+        <h2>Upcoming Meetings</h2>
+        <ul>
+            {% for meeting in upcoming_meetings %}
+                <li>
+                    <strong>{{ meeting.title }}</strong> on {{ meeting.date }} at {{ meeting.time }} with {{ meeting.participants }}
+                </li>
+            {% empty %}
+                <li>No upcoming meetings.</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <!-- Quick Stats Section -->
+    <section class="quick-stats">
+        <h2>Quick Stats</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Meetings This Week</h3>
+                <p>{{ total_meetings_week }}</p>
+            </div>
+            <div class="stat-card">
+                <h3>Meeting Success Rate</h3>
+                <p>{{ success_rate }}%</p>
+            </div>
+            <div class="stat-card">
+                <h3>Rescheduled Meetings</h3>
+                <p>{{ rescheduled_meetings }}</p>
+            </div>
+            <div class="stat-card">
+                <h3>Canceled Meetings</h3>
+                <p>{{ canceled_meetings }}</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Actionable Insights -->
+    <section class="actionable-insights">
+        <h2>Actionable Insights</h2>
+        <div class="insights-grid">
+            <div class="insight-card">
+                <h3>Next Important Deadline</h3>
+                <p>{{ next_deadline }}</p>
+            </div>
+            <div class="insight-card">
+                <h3>Suggested Meeting Times</h3>
+                <ul>
+                    {% for suggestion in meeting_suggestions %}
+                        <li>{{ suggestion.time }} on {{ suggestion.date }}</li>
+                    {% empty %}
+                        <li>No meeting suggestions at the moment.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workload Summary Section -->
+    <section class="workload-summary">
+        <h2>Your Workload</h2>
+        <p>{{ workload_summary }}</p>
+    </section>
+
+    <!-- Go to Planner Button -->
+    <footer>
+        <button class="planner-btn" onclick="window.location.href='{% url 'planner' %}'">Go to Planner</button>
+    </footer>
+
+</body>
+</html>

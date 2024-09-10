@@ -1,0 +1,308 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    position: relative; /* Ensure positioning context for absolute positioning */
+    min-height: 100vh;
+}
+
+
+/* Login Page Specific Styling */
+body.login-page {
+    background: url('images/Sand_Timer.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+body.register-page {
+    background: url('images/clock.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+
+/* Home Page Specific Styling */
+body.home-page {
+    background-color: white; /* White background for home page */
+    display: block; /* Default display */
+}
+
+/* Task Page Specific Styling */
+body.task-page {
+    background-color: white; /* White background for task page */
+    display: flex; /* Flex display to align the nav and main content */
+    min-height: 100vh;
+}
+
+/* Header and Navigation (Common) */
+header {
+    background-color: #007BFF;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-start; /* Align navigation links to the left */
+    padding: 0 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #0056b3;
+}
+
+/* Main Content for Home Page */
+body.home-page main {
+    padding: 20px;
+    max-width: 1200px; /* Adjust as needed */
+    margin: auto; /* Center align horizontally within the main container */
+    text-align: center; /* Center align text */
+}
+
+body.home-page h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+body.home-page p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+/* Main Content for Task Page */
+body.task-page main {
+    flex-grow: 1; /* Flex-grow to fill remaining space */
+    padding: 20px;
+    max-width: 1200px; /* Adjust as needed */
+    margin: auto; /* Center align horizontally within the main container */
+}
+
+/* Task Page Navigation */
+body.task-page nav {
+    flex-direction: column; /* Vertical navigation */
+    background-color: #007BFF;
+    padding: 10px;
+    min-width: 200px; /* Fixed width for the vertical navigation */
+}
+
+body.task-page nav a {
+    padding: 10px 15px;
+    text-align: left; /* Align text to the left */
+}
+
+/* Form Styling (For Tasks Page) */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px; /* Adjust as needed */
+    margin: auto; /* Center align the form within the main content */
+}
+
+form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+form input[type="text"],
+form input[type="date"],
+form select {
+    margin-bottom: 15px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 12px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Task List Styling */
+.task-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-list li {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-list button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.task-list button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Login Container */
+.login-container {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    right: 150px; /* Adjust this value to move it inward from the right edge */
+    transform: translateY(-50%); /* Adjust vertical center */
+    width: 60%; /* Adjust width as needed */
+    max-width: 500px; /* Adjust max-width as needed */
+    padding: 30px; /* Adjust padding as needed */
+    background-color: rgba(255, 255, 255, 0.9); /* Ensure readability */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.login-container input {
+    margin-bottom: 15px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.login-container input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.login-container button {
+    padding: 12px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.login-container p {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-container a {
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-container a:hover {
+    color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container, body.home-page main, body.task-page main {
+        width: 80%;
+        max-width: 400px;
+        margin: 20px auto;
+    }
+
+    body.task-page nav {
+        width: 100%;
+        height: auto; /* Adjust header height for smaller screens */
+        flex-direction: row; /* Horizontal nav for smaller screens */
+        padding: 10px 0;
+    }
+
+    body.task-page main {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    form {
+        margin: 20px;
+        padding: 20px;
+    }
+}
+
+.messages {
+    margin-bottom: 20px;
+}
+.message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+

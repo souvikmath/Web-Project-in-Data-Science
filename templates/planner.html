@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planner</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Meeting Planner</h1>
+
+        <form method="POST" action="{% url 'schedule_meeting' %}">
+            {% csrf_token %}
+            
+            <label for="event_start">Event Start</label>
+            <input type="datetime-local" id="event_start" name="event_start" required>
+
+            <label for="duration">Duration (Minutes)</label>
+            <input type="number" id="duration" name="duration" min="30" max="120" required>
+
+            <label for="meeting_type">Meeting Type</label>
+            <select id="meeting_type" name="meeting_type" required>
+                <option value="team_meeting">Team Meeting</option>
+                <option value="client_call">Client Call</option>
+                <option value="1:1">1:1</option>
+            </select>
+
+            <label for="is_recurring">Recurring?</label>
+            <input type="checkbox" id="is_recurring" name="is_recurring">
+
+            <label for="busy_slots">Busy Slots</label>
+            <input type="text" id="busy_slots" name="busy_slots" placeholder="e.g. 9AM-10AM">
+
+            <label for="participant_availability">Participant Availability</label>
+            <select id="participant_availability" name="participant_availability" required>
+                <option value="available">Available</option>
+                <option value="not_available">Not Available</option>
+                <option value="partially_available">Partially Available</option>
+            </select>
+
+            <button type="submit">Schedule Meeting</button>
+        </form>
+    </div>
+</body>
+</html>
